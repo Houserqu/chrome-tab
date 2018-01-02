@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "houser tab",
+  "version": "1.0.0",
+  "description": "程序员适用的 标签页",
+
+  "icons":
+  {
+      "16": "houser.png",
+      "48": "houser.png",
+      "128": "houser.png"
+  },
+
+  "permissions":
+  [
+      "webRequest",
+      "webRequestBlocking",
+      "storage",
+      "tabs"
+  ],
+
+  "homepage_url": "https://houserqu.com",
+
+  "chrome_url_overrides":
+  {
+      "newtab": "index.html"
+  }
+}
