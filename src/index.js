@@ -5,10 +5,10 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'mobx-react';
 
-import UrlListModel from './models/UrlListModel';
+import UrlStore from './stores/UrlStore';
 
 const stores = {
-  UrlListModel
+  UrlStore
 };
 
 ReactDOM.render((

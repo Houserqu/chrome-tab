@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import { inject } from 'mobx-react';
 import logo from './logo.svg';
-import './App.css';
+import './App.less';
 import nav from './utils/default-nav.json';
 import UrlList from './components/Url/UrlList';
+import Search from "./components/search/Search";
 
-@inject('UrlListModel')
+@inject('UrlStore')
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-          
-        <UrlList data={this.props.UrlListModel.todos} />
-
+      <div>
+        <Search/>
+        <UrlList data={this.props.UrlStore.todos} />
       </div>
     );
   }

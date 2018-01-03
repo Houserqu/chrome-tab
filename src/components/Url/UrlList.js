@@ -3,13 +3,12 @@ import { inject, observer } from 'mobx-react';
 
 import Url from './Url';
 
-@inject('UrlListModel')
+@inject('UrlStore')
 @observer
 class UrlList extends Component {
 
   handleDelUrl = () => {
-    //console.log(this.props.UrlListModel.del);
-    this.props.UrlListModel.del()
+    this.props.UrlStore.del()
   }
   render() {
     const { data } = this.props;
