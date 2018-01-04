@@ -7,6 +7,23 @@ import { Provider } from 'mobx-react';
 
 import UrlStore from './stores/UrlStore';
 
+import checkDb from  './utils/indexedDb';
+
+let indexedDb = new checkDb;
+
+indexedDb.getStore('url').then(result=>{
+  console.log(result);
+}).catch(e=>{
+  console.error(e);
+});
+
+indexedDb.getObject('urls', 1).then(result => {
+  console.log(result);
+}).catch(e => {
+  console.error(e)
+})
+
+
 const stores = {
   UrlStore
 };

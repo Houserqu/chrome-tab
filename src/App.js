@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { inject } from 'mobx-react';
-import logo from './logo.svg';
-import './App.less';
-import nav from './utils/default-nav.json';
-import UrlList from './components/Url/UrlList';
+import style from './App.less';
+import UrlBox from './components/Url/UrlBox';
 import Search from "./components/search/Search";
+import Global from './utils/globalClass';
 
+//console.log(Global.get());
 @inject('UrlStore')
 class App extends Component {
   render() {
     return (
       <div>
-        <Search/>
-        <UrlList data={this.props.UrlStore.todos} />
+        <Search />
+        <UrlBox data={this.props.UrlStore.todos} />
       </div>
     );
   }

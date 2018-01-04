@@ -1,41 +1,30 @@
 [
   {
-    "categoryName": "js",
-    "icon": "houser.jsp",
+    "title": "百度",
+    "category_id": 1,
     "id": 1,
-    "urls": [
-      {
-        "title": "百度",
-        "id": 1,
-        "url": "https://www.baidu.com",
-        "icon": "houser.jsp"
-      }
-    ]
+    "url": "https://www.baidu.com",
+    "icon": "houser.jpg"
   },
   {
-    "categoryName": "java",
-    "icon": "houser.jsp",
-    "id": 2,
-    "urls": [
-      {
-        "title": "百度",
-        "id": 1,
-        "url": "https://www.baidu.com",
-        "icon": "houser.jsp"
-      }
-    ]
+    "title": "谷歌",
+    "category_id": 1,
+    "id": 1,
+    "url": "https://www.baidu.com",
+    "icon": "houser.jpg"
   },
   {
-    "categoryName": "c++",
-    "icon": "houser.jsp",
-    "id": 3,
-    "urls": [
-      {
-        "title": "百度",
-        "id": 1,
-        "url": "https://www.baidu.com",
-        "icon": "houser.jsp"
-      }
-    ]
+    "title": "网易",
+    "category_id": 1,
+    "id": 1,
+    "url": "https://www.baidu.com",
+    "icon": "houser.jpg"
+  },
+  {
+    "title": "腾讯",
+    "category_id": 1,
+    "id": 1,
+    "url": "https://www.baidu.com",
+    "icon": "houser.jpg"
   }
 ]

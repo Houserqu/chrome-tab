@@ -3,9 +3,8 @@ import style from './search.less';
 
 const SearchInput = ({}) => {
   return (
-    <div className={style.searchinput}>
-      123
-      <input type="text"/>
+    <div className={style.searchInput_box}>
+      <input type="text" className={style.searchInput} />
     </div>
   );
 }
