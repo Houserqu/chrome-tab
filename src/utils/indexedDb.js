@@ -118,7 +118,20 @@ export default class IndexedDb {
 
           // 获取对象仓库
           let store = transaction.objectStore(storeName);
-          key ? store.add(object, key) : store.add(object)
+          let addQuery;
+          if(key){
+            addQuery = store.add(object, key)
+          } else {
+            addQuery = store.add(object)
+          }
+
+          addQuery.onerror = e => {
+            reject({code: 'Error', message: e.target.error.name})
+          }
+
+          addQuery.onsuccess = e => {
+            resolve(e.target.result);
+          }
         }
       } else {
         // 不支持

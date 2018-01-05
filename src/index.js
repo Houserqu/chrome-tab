@@ -11,6 +11,12 @@ import checkDb from  './utils/indexedDb';
 
 checkDb.checkDb().then(e=>{
   console.log(e);
+  checkDb.addObject('url', {title: '33333'}).then(e => {
+    console.log(e);
+  }).catch(e => {
+    console.log(e);
+  });
+
   checkDb.getStore('url').then(e=>{
     console.log(e)
   });
