@@ -9,20 +9,17 @@ import UrlStore from './stores/UrlStore';
 
 import checkDb from  './utils/indexedDb';
 
-let indexedDb = new checkDb;
-
-indexedDb.getStore('url').then(result=>{
-  console.log(result);
-}).catch(e=>{
-  console.error(e);
-});
-
-indexedDb.getObject('urls', 1).then(result => {
-  console.log(result);
+checkDb.checkDb().then(e=>{
+  console.log(e);
+  checkDb.getStore('url').then(e=>{
+    console.log(e)
+  });
 }).catch(e => {
-  console.error(e)
+  console.log(e);
+  if(e.code === 300){
+    checkDb.initDb();
+  }
 })
-
 
 const stores = {
   UrlStore
