@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom'
 import { inject } from 'mobx-react';
 import style from './App.less';
-import UrlBox from './components/Url/UrlBox';
-import Search from "./components/search/Search";
-import Global from './utils/globalClass';
+import indexedDb from  './utils/indexedDb';
+import Index from "./page/index";
 
-//console.log(Global.get());
 @inject('UrlStore')
 class App extends Component {
+
+  componentWillMount() {
+    indexedDb.checkDb().then(e=>{
+      indexedDb.getStore('url').then(e=>{
+        this.props.UrlStore.setUrls(e)
+      });
+    }).catch(e => {
+      if(e.code === 300){
+        indexedDb.initDb();
+      }
+    })
+  }
+
   render() {
     return (
       <div>
-        <Search />
-        <UrlBox data={this.props.UrlStore.todos} />
+        <Switch>
+          <Route path="/" component={Index} />
+        </Switch>
       </div>
     );
   }
