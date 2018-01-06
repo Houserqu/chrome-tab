@@ -13,12 +13,12 @@ class UrlBox extends Component {
 
   render() {
     const data  = this.props.UrlStore.urls;
-    console.log(data)
     return (
       <div className={style.urlbox_root}>
       {
         data.map(item => <Url data={item} key={item.key} del={this.handleDelUrl} />)
       }
+
       </div>
     );
   }

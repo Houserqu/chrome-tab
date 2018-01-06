@@ -1,8 +1,14 @@
 import React from 'react';
+import style from './url.less';
 
-const Url = ({ data, del }) => {
+const Url = ({data, del}) => {
   return (
-    <button onClick={() => del()}>{data.title}</button>
+    <div
+      className={style.url}
+      onClick={() => del()}
+    >
+      {data.title}
+    </div>
   )
 }
 

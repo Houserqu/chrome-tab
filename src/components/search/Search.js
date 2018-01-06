@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
-import SearchInput from './SearchInput';
-import SearchSelect from "./SearchSelect";
-import style from './search.less';
+import { Input, Select, Button } from 'antd';
+
+const selectBefore = (
+  <Select defaultValue="Http://" style={{ width: 90 }}>
+    <Select.Option value="Http://">Google</Select.Option>
+    <Select.Option value="Https://">Baidu</Select.Option>
+  </Select>
+);
 
 class Search extends Component {
   state = {
+    search_value: '',
     engine: [
       {
         name: 'Google',
@@ -15,14 +21,22 @@ class Search extends Component {
     currency: 'Google'
   }
 
+  handleSearch = () => {
+    console.log(this.state.search_value)
+  }
+
   render(){
+    const { search_value } = this.state;
     return (
-      <div className={style.search_root}>
-        <div className={style.search_searchSelect_box}>
-          <SearchSelect data={this.state.engine}/>
-        </div>
-        <div className={style.search_searchInput_box}>
-          <SearchInput />
+      <div className='search'>
+        <div className='search__input'>
+          <Input
+            size='large'
+            addonBefore={selectBefore}
+            onPressEnter={this.handleSearch}
+            value={search_value}
+            onChange={e=>this.setState({search_value: e.target.value})}
+          />
         </div>
       </div>
     )
