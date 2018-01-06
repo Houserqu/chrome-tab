@@ -1,14 +1,11 @@
 import React from 'react';
-import style from './url.less';
+import { Button, Col } from 'antd';
 
 const Url = ({data, del}) => {
   return (
-    <div
-      className={style.url}
-      onClick={() => del()}
-    >
-      {data.title}
-    </div>
+    <Col span={2}>
+      <Button onClick={() => del()}>{data.title}</Button>
+    </Col>
   )
 }
 
