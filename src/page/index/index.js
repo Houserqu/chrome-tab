@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Search from "../../components/search/Search";
 import UrlBox from "../../components/Url/UrlBox";
+import NewUrl from "../../components/Url/New";
 
 class Index extends Component {
   state = {}
@@ -10,6 +11,7 @@ class Index extends Component {
       <div>
         <Search/>
         <UrlBox/>
+        <NewUrl/>
       </div>
     )
   }

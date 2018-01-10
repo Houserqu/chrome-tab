@@ -6,11 +6,12 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'mobx-react';
 
-import indexedDb from  './utils/indexedDb';
 import UrlStore from './stores/UrlStore';
+import RightClickStore from './stores/RightClickStore';
 
 let stores = {
-  UrlStore
+  UrlStore,
+  RightClickStore
 };
 
 ReactDOM.render((

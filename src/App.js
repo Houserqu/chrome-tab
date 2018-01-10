@@ -8,8 +8,9 @@ import { inject } from 'mobx-react';
 import style from './App.less';
 import indexedDb from  './utils/indexedDb';
 import Index from "./page/index";
+import RightClick from "./components/rightClick/RightClick";
 
-@inject('UrlStore')
+@inject('UrlStore','RightClickStore')
 class App extends Component {
 
   componentWillMount() {
@@ -30,6 +31,8 @@ class App extends Component {
         <Switch>
           <Route path="/" component={Index} />
         </Switch>
+
+        <RightClick/>
       </div>
     );
   }

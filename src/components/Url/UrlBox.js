@@ -7,17 +7,17 @@ import Url from "./Url";
 @observer
 class UrlBox extends Component {
 
-  handleDelUrl = () => {
-    this.props.UrlStore.del()
+  handleOpen = (data) => {
+    window.location.href = data.url;
   }
 
   render() {
     const data  = this.props.UrlStore.urls;
     return (
       <div className='urlbox'>
-          <Row>
+          <Row type="flex" gutter={16}>
             {
-              data.map(item => <Url data={item} key={item.key} del={this.handleDelUrl} />)
+              data.map(item => <Url data={item} key={item.key} open={this.handleOpen} />)
             }
           </Row>
       </div>
