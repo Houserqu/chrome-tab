@@ -35,7 +35,7 @@ class Url extends Component {
   render(){
     const {data, open} = this.props;
     return (
-      <Col span={2}>
+      <Col className='url__col'>
         <Tooltip title={data.url}>
           <Button
             onClick={() => open(data)}
