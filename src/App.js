@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom'
 import { inject } from 'mobx-react';
-import style from './App.less';
+import './App.less';
 import indexedDb from  './utils/indexedDb';
 import Index from "./page/index";
 import RightClick from "./components/rightClick/RightClick";

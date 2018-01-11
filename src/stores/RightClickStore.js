@@ -1,24 +1,31 @@
-import { observable, computed, action } from "mobx";
-import indexedDb from '../utils/indexedDb';
-
-const urls = indexedDb.getStore('url');
+import { observable, action } from "mobx";
 
 export class UrlStore {
   constructor(){
-    this.urls = [];
-    this.show = true
+    this.position = {
+      x: 0,
+      y: 0
+    };
   }
 
-  @observable show = true;
+  @observable show = false;
+  @observable actions = null;
+  @observable title = '操作';
 
   @action close(){
-    console.log('close')
     this.show = false
   }
 
-  @action operationUrl(actions){
-    console.log(actions)
-    this.show = true
+  @action operationUrl({ title, position, actions}){
+    this.show = false;
+
+    setTimeout(() => {
+      this.position = position;
+      this.show = true;
+      this.actions = actions
+      this.title = title
+    }, 100)
+
   }
 
 }

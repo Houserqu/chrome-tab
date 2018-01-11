@@ -5,28 +5,28 @@ import { inject, observer } from 'mobx-react';
 @inject('RightClickStore')
 @observer
 class RightClick extends Component {
-  state = {}
+  state = {
+    x: 0,
+    y: 0
+  }
 
   componentDidMount(){
-    document.addEventListener('contextmenu', this.handleTextMenu);
     document.addEventListener('click', () => this.props.RightClickStore.close());
   }
 
-  handleTextMenu = e => {
-    console.log(e.target);
-  }
-
   render(){
+    const { position, actions, title} = this.props.RightClickStore;
     return (
-      <div>
+      <div >
         <Popover
-          content={<a onClick={this.hide}>Close</a>}
-          title="操作"
+          content={actions}
+          title={title}
           trigger="click"
           visible={this.props.RightClickStore.show}
           onVisibleChange={this.handleVisibleChange}
           placement="rightTop"
         >
+          <div style={{ position: 'absolute', width: '1px', height: '1px', left: position.x, top: position.y}} />
         </Popover>
       </div>
     )

@@ -1,29 +1,35 @@
 import React, {Component} from 'react';
-import { Button, Col, Tooltip, Popover } from 'antd';
+import { Button, Col, Tooltip } from 'antd';
 import {inject, observer} from "mobx-react/index";
 
-@inject('RightClickStore')
+@inject('RightClickStore', 'UrlStore')
 @observer
 class Url extends Component {
   state = {
     operation_show: false
   }
 
+  handleDel = () => {
+    this.props.UrlStore.del(this.props.data.key);
+  }
+
+  handleUpdate = () => {
+    this.props.UrlStore.showUpdate(this.props.data);
+  }
+
   handleOperation = (e) => {
-    e.preventDefault()
-    //this.setState({operation_show: true});
-    // e.target.addEventListener('mouseleave', e => {
-    //   console.log(e.relatedTarget)
-    //   this.setState({operation_show: false})
-    // })
-    this.props.RightClickStore.operationUrl([
-      {
-        name: '删除',
-        action: () => {
-          console.log('del')
-        }
-      }
-    ]);
+    e.preventDefault();
+    let x = e.clientX;
+    let y = e.clientY - 10;
+
+    this.props.RightClickStore.operationUrl({
+      title: 'Url操作',
+      position: { x, y },
+      actions: <div key='update'>
+        <a className='rightclick__action' key='del' onClick={this.handleDel}>删除</a>
+        <a className='rightclick__action' key='update' onClick={this.handleUpdate}>编辑</a>
+      </div>
+  });
   }
 
   render(){
@@ -39,16 +45,6 @@ class Url extends Component {
             {data.title}
           </Button>
         </Tooltip>
-
-        <Popover
-          content={<a onClick={this.hide}>Close</a>}
-          title="操作"
-          trigger="click"
-          visible={this.state.operation_show}
-          onVisibleChange={this.handleVisibleChange}
-          placement="rightTop"
-        >
-        </Popover>
       </Col>
     )
   }
