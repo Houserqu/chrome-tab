@@ -9,7 +9,7 @@ import indexedDb from  './utils/indexedDb';
 import Index from "./page/index";
 import RightClick from "./components/rightClick/RightClick";
 
-@inject('UrlStore','RightClickStore')
+@inject('UrlStore','RightClickStore', 'WeatherStore')
 class App extends Component {
 
   componentWillMount() {

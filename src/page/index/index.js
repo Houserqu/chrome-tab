@@ -3,6 +3,7 @@ import Search from "../../components/search/Search";
 import UrlBox from "../../components/Url/UrlBox";
 import NewUrl from "../../components/Url/New";
 import UpdateUrl from "../../components/Url/Update";
+import Weather from "../../components/weather/Weather";
 
 class Index extends Component {
   state = {}
@@ -15,6 +16,7 @@ class Index extends Component {
 
         <NewUrl/>
         <UpdateUrl/>
+        <Weather/>
       </div>
     )
   }

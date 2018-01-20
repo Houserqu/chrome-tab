@@ -8,10 +8,12 @@ import { Provider } from 'mobx-react';
 
 import UrlStore from './stores/UrlStore';
 import RightClickStore from './stores/RightClickStore';
+import WeatherStore from './stores/WeatherStore';
 
 let stores = {
   UrlStore,
-  RightClickStore
+  RightClickStore,
+  WeatherStore,
 };
 
 ReactDOM.render((
