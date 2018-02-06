@@ -1,0 +1,143 @@
+@swatch_1: #426d8e;
+@swatch_2: #253544;
+@swatch_3: #5f6264;
+@swatch_4: #9c9993;
+@swatch_5: #dfc6ac;
+@swatch_6: #bb9573;
+@swatch_7: #898860;
+
+
+.weather {
+  background-image: url("/background/139.jpg");
+  background-size: 100% 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.weather__content {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather__footer--glass {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  -o-filter: blur(10px);
+  filter: blur(10px);
+  z-index: 1;
+  background: inherit;
+}
+
+.weather__footer {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+}
+
+.weather__daily--item {
+  height: 150px;
+  border-left: 1px solid @swatch_4;
+  color: #ffffff;
+  text-align: center;
+  flex: 1;
+}
+
+.weather__daily--item-week {
+  background-color: @swatch_4;
+  border-radius: 10px;
+  width: 60%;
+  margin-left: 20%;
+}
+
+.weather__daily {
+  display: flex;
+  flex: 8;
+}
+
+.weather__daily--item img {
+  width: 50px;
+  height: 50px;
+}
+
+.weather__daily--item p {
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+.w-daily__now {
+  height: 150px;
+  flex: 3;
+  display: flex;
+}
+
+.w-daily__now--temp {
+  flex: 1;
+  text-align: right;
+  color: #ffffff;
+
+  .temp {
+    font-size: 90px;
+    line-height: 120px;
+    height: 120px;
+  }
+
+  .day {
+    background-color: @swatch_4;
+    border-radius: 10px;
+    width: 70px;
+    font-size: 14px;
+    text-align: center;
+    float: right;
+  }
+}
+
+.w-daily__now--icon {
+  flex: 1;
+  padding: 15px 0;
+
+  img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .wind {
+    font-size: 14px;
+    color: #ffffff;
+    margin-top: 15px;
+    margin-left: 20px;
+  }
+}
+
+.weather__location {
+  margin: 20px 20px 0 0;
+}
+
+.weather__location--img {
+  width: 100px;
+  height: 100px;
+}
+
+.weather__location--p {
+  text-align: center;
+  margin-top: 5px;
+  color: #ffffff;
+}
+
+.w-title {
+  font-size: 50px;
+  margin-left: 10px;
+  color: @swatch_1;
+}
+

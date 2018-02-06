@@ -24,7 +24,7 @@ export function getWeather(params) {
 }
 
 export function getCity(params) {
-  let url = urlParams("http://jisutqybmf.market.alicloudapi.com/weather/query?", params);
+  let url = urlParams("http://jisutqybmf.market.alicloudapi.com/weather/city?", params);
   return new Promise((resolve, reject) => {
     fetch(url, {
       method: 'get',
