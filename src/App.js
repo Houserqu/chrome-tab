@@ -14,6 +14,8 @@ class App extends Component {
 
   componentWillMount() {
     indexedDb.checkDb().then(e=>{
+
+      
       indexedDb.getStore('url').then(e=>{
         this.props.UrlStore.setUrls(e)
       });
