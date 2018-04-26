@@ -56,7 +56,7 @@ module.exports = {
     popup: [
       require.resolve('./polyfills'),
       require.resolve('react-dev-utils/webpackHotDevClient'),
-      paths.appSrc + '/popup/index.js',
+      paths.appPopupJs,
     ]
   },
   output: {
