@@ -7,7 +7,7 @@ export function getWeather(params) {
     fetch(url, {
       method: 'get',
       headers : {
-        "Authorization": "APPCODE 557d3e7aaf744971bca3ed75c7c0421f"
+        "Authorization": "APPCODE c6abea8a32ef45044a9be9fd6d342b24"
       },
     }).then((response) => {
       if(response.status == 200){
