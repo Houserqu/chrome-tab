@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "houser tab",
+  "version": "1.0.0",
+  "description": "程序员适用的 标签页",
+
+  "icons":
+  {
+    "16": "houser.jpg",
+    "48": "houser.jpg",
+    "128": "houser.jpg"
+  },
+
+  "permissions":
+  [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
+  "homepage_url": "https://houserqu.com",
+
+  "chrome_url_overrides":
+  {
+    "newtab": "index.html"
+  },
+
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "houser.jpg"
+  }
+}
