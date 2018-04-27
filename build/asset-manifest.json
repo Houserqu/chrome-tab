@@ -1,12 +1,10 @@
 {
-  "background.js": "static/js/background.b84c1b2c.js",
-  "background.js.map": "static/js/background.b84c1b2c.js.map",
-  "index.css": "static/css/index.773fa05a.css",
-  "index.css.map": "static/css/index.773fa05a.css.map",
-  "index.js": "static/js/index.285d9c62.js",
-  "index.js.map": "static/js/index.285d9c62.js.map",
-  "popup.css": "static/css/popup.191d6c6e.css",
-  "popup.css.map": "static/css/popup.191d6c6e.css.map",
-  "popup.js": "static/js/popup.fcdf5eba.js",
-  "popup.js.map": "static/js/popup.fcdf5eba.js.map"
+  "index.css": "static/index/index.773fa05a.css",
+  "index.css.map": "static/index/index.773fa05a.css.map",
+  "index.js": "static/index/index.4f731a5c.js",
+  "index.js.map": "static/index/index.4f731a5c.js.map",
+  "popup.css": "static/popup/popup.e76cca77.css",
+  "popup.css.map": "static/popup/popup.e76cca77.css.map",
+  "popup.js": "static/popup/popup.9f8a9bfd.js",
+  "popup.js.map": "static/popup/popup.9f8a9bfd.js.map"
 }

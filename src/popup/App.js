@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import {
+  Route,
+  Switch,
+} from 'react-router-dom'
+import { inject } from 'mobx-react';
+import './App.less';
+
+import Index from "./page/index";
 
 class App extends Component {
   render() {
     return (
-      <Button type="primary">Primary</Button>
+      <div className="container">
+        <Switch>
+          <Route path="/" component={Index} />
+        </Switch>
+    </div>
     )
   }
 }
