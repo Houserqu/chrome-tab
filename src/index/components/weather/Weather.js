@@ -15,7 +15,7 @@ class Weather extends Component {
 
   componentDidMount(){
     this.props.WeatherStore.fetchWeather();
-    this.props.WeatherStore.fetchCity();
+    //this.props.WeatherStore.fetchCity();
   }
 
   render(){

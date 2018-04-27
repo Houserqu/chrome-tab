@@ -21,7 +21,9 @@ class App extends Component {
       });
     }).catch(e => {
       if(e.code === 300){
-        indexedDb.initDb();
+        indexedDb.initDb().then(()=>{
+          this.props.UrlStore.resetUrls();
+        });
       }
     })
   }

@@ -3,11 +3,12 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import { inject } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import './App.less';
 
 import Index from "./page/index";
 
+@inject('UrlStore')
 class App extends Component {
   render() {
     return (

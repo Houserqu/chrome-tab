@@ -38,23 +38,27 @@ export default class IndexedDb {
   }
 
   static initDb() {
-    let openRequest = indexedDB.open(indexedDbName, 1);
+    return new Promise((resolve, reject) => {
+      let openRequest = indexedDB.open(indexedDbName, 1);
 
-    // 打开成功
-    openRequest.onsuccess = e => {
-      // 创建事务
-      console.log('写入初始数据')
-      let db = e.target.result;
-      let transaction = db.transaction(["url"], "readwrite");
+      // 打开成功
+      openRequest.onsuccess = e => {
+        // 创建事务
+        console.log('写入初始数据')
+        let db = e.target.result;
+        let transaction = db.transaction(["url"], "readwrite");
+  
+        // 获取对象仓库
+        let store = transaction.objectStore('url');
+  
+        // 写入初始数据
+        default_url.map(item => {
+          store.add(item)
+        })
 
-      // 获取对象仓库
-      let store = transaction.objectStore('url');
-
-      // 写入初始数据
-      default_url.map(item => {
-        store.add(item)
-      })
-    }
+        resolve();
+      }
+    })
   }
 
   static getStore = (storeName) => {
