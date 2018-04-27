@@ -34,4 +34,6 @@
 
 ### 开发说明
 
-build文件夹包含 [create-react-app](https://github.com/facebook/create-react-app) 生成的 tab页 以及 [chrome配置](https://developer.chrome.com/apps/manifest)
+> 由于build文件夹里与生成无关的内容会被清理，导致manifest.json每次都被删除，所以新建chrom-build作为最终完整应用文件夹，可以拖放到chrome运行。包含 [create-react-app](https://github.com/facebook/create-react-app) 生成的 tab页 以及 [chrome配置](https://developer.chrome.com/apps/manifest)。所以 npm run build后需要手动从 build 文件夹复制到 chrome-build 文件夹。
+
+> 该插件会用到 chrome 对象，在本地开发环境是没有的，为了保证正常打包，所以需要通过 window.chrome 方式在需要用到的地方引用。
