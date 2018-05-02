@@ -22,6 +22,7 @@ export default class IndexedDb {
           // 创建表
           let db = e.target.result;
           db.createObjectStore("url", {autoIncrement: true});
+          db.createObjectStore("category", {autoIncrement: true});
 
           reject({code: 300, message: '不存在数据库，已初始化对象仓库'})
         }
@@ -61,8 +62,23 @@ export default class IndexedDb {
     })
   }
 
-  static getStore = (storeName) => {
+  // 创建数据表
+  static initStore(storeName) {
+    return new Promise((resolve, reject) => {
+      let openRequest = indexedDB.open(indexedDbName, 1);
 
+      // 打开成功
+      openRequest.onsuccess = e => {
+        // 创建事务
+        let db = e.target.result;
+        db.createObjectStore(storeName, {autoIncrement: true});
+
+        resolve();
+      }
+    })
+  }
+
+  static getStore = (storeName) => {
     return new Promise((resolve, reject) => {
       // 判断是否支持indexedDb
       if ('indexedDB' in window) {
@@ -116,25 +132,30 @@ export default class IndexedDb {
 
         // 存在数据库，打开成功
         openRequest.onsuccess = e => {
-          // 创建事务
-          let db = e.target.result;
-          let transaction = db.transaction([storeName], "readwrite");
 
-          // 获取对象仓库
-          let store = transaction.objectStore(storeName);
-          let addQuery;
-          if(key){
-            addQuery = store.add(object, key)
-          } else {
-            addQuery = store.add(object)
-          }
+          try {
+            // 创建事务
+            let db = e.target.result;
+            let transaction = db.transaction([storeName], "readwrite");
 
-          addQuery.onerror = e => {
-            reject({code: 'Error', message: e.target.error.name})
-          }
+            // 获取对象仓库
+            let store = transaction.objectStore(storeName);
+            let addQuery;
+            if(key){
+              addQuery = store.add(object, key)
+            } else {
+              addQuery = store.add(object)
+            }
 
-          addQuery.onsuccess = e => {
-            resolve(e.target.result);
+            addQuery.onerror = e => {
+              reject({code: 'Error', message: e.target.error.name})
+            }
+
+            addQuery.onsuccess = e => {
+              resolve(e.target.result);
+            }
+          }catch(e){
+            reject({code: 400, message: '不存在数据表'});
           }
         }
       } else {

@@ -5,6 +5,7 @@ import { message } from 'antd';
 export class UrlStore {
   constructor(){
     this.urls = [];
+    this.category = []
   }
 
   @observable urls = [];
@@ -12,12 +13,22 @@ export class UrlStore {
   @observable update_data = {};
 
   @action setUrls(urls) {
-    console.log(urls);
     this.urls = urls;
+  }
+
+  @action setCategory(category) {
+    this.category = [];
+    category.map(item => {
+      this.category.push(item.name);
+    })
   }
 
   @action resetUrls() {
     indexedDb.getStore('url').then(v => this.setUrls(v));
+  }
+
+  @action resetCategory() {
+    indexedDb.getStore('category').then(v => this.setCategory(v));
   }
 
   @action del(key) {
@@ -29,7 +40,6 @@ export class UrlStore {
 
   @action add(data) {
     return new Promise((resolve, reject) => {
-      //this.urls.push(data);
       indexedDb.addObject('url', data).then(result => {
         //console.log(this);
         this.resetUrls();
@@ -41,10 +51,7 @@ export class UrlStore {
   }
 
   @action update(data, key) {
-    console.log(data, key);
-
     return new Promise((resolve, reject) => {
-      //this.urls.push(data);
       indexedDb.putObject('url', data, key).then(result => {
         this.resetUrls();
         resolve({code: 200, message: '更新成功', data: result});
@@ -61,6 +68,15 @@ export class UrlStore {
   @action showUpdate(data) {
     this.update_show = true;
     this.update_data = data;
+  }
+
+  @action addCategory(name) {
+    console.log(name);
+    indexedDb.addObject('category', name).then(result => {
+      this.resetCategory();
+    }).catch(e => {
+      console.log(e);
+    });
   }
 }
 

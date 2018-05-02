@@ -16,7 +16,7 @@ class Index extends Component {
 
         <NewUrl/>
         <UpdateUrl/>
-        <Weather/>
+        {/* <Weather/> */}
       </div>
     )
   }

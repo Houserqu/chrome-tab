@@ -14,10 +14,12 @@ class App extends Component {
 
   componentWillMount() {
     indexedDb.checkDb().then(e=>{
-
-      
       indexedDb.getStore('url').then(e=>{
         this.props.UrlStore.setUrls(e)
+      });
+
+      indexedDb.getStore('category').then(e=>{
+        this.props.UrlStore.setCategory(e);
       });
     }).catch(e => {
       if(e.code === 300){
@@ -25,7 +27,19 @@ class App extends Component {
           this.props.UrlStore.resetUrls();
         });
       }
-    })
+    });
+
+    // indexedDb.checkDb().then(e=>{
+    //   indexedDb.getStore('category').then(e=>{
+    //     this.props.UrlStore.setCategory(e)
+    //   });
+    // }).catch(e => {
+    //   if(e.code === 300){
+    //     indexedDb.initDb().then(()=>{
+    //       this.props.UrlStore.resetCategory();
+    //     });
+    //   }
+    // })
   }
 
   render() {
